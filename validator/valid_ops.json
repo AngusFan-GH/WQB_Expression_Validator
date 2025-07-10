@@ -6,14 +6,8 @@
     "min_args": 2,
     "max_args": 2,
     "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      [
-        "field",
-        "expr"
-      ]
+      ["field", "expr"],
+      ["field", "expr"]
     ],
     "kwarg_types": {
       "filter": "boolean"
@@ -26,16 +20,7 @@
     "description": "Multiply all inputs. At least 2 inputs are required. Filter sets the NaN values to 1",
     "min_args": 2,
     "max_args": null,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      [
-        "field",
-        "expr"
-      ]
-    ],
+    "var_args_type": ["field", "expr"],
     "kwarg_types": {
       "filter": "boolean"
     },
@@ -47,12 +32,7 @@
     "description": "if input = NaN; return NaN",
     "min_args": 1,
     "max_args": 1,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ]
-    ],
+    "arg_types": [["field", "expr"]],
     "return_type": "expr"
   },
   "subtract": {
@@ -62,14 +42,8 @@
     "min_args": 2,
     "max_args": 2,
     "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      [
-        "field",
-        "expr"
-      ]
+      ["field", "expr"],
+      ["field", "expr"]
     ],
     "kwarg_types": {
       "filter": "boolean"
@@ -82,12 +56,7 @@
     "description": "Natural logarithm. For example: Log(high/low) uses natural logarithm of high/low ratio as stock weights.",
     "min_args": 1,
     "max_args": 1,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ]
-    ],
+    "arg_types": [["field", "expr"]],
     "return_type": "expr"
   },
   "max": {
@@ -96,16 +65,7 @@
     "description": "Maximum value of all inputs. At least 2 inputs are required",
     "min_args": 2,
     "max_args": null,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      [
-        "field",
-        "expr"
-      ]
-    ],
+    "var_args_type": ["field", "expr"],
     "return_type": "expr"
   },
   "abs": {
@@ -114,12 +74,7 @@
     "description": "Absolute value of x",
     "min_args": 1,
     "max_args": 1,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ]
-    ],
+    "arg_types": [["field", "expr"]],
     "return_type": "expr"
   },
   "sigmoid": {
@@ -128,12 +83,7 @@
     "description": "Returns 1 / (1 + exp(-x))",
     "min_args": 1,
     "max_args": 1,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ]
-    ],
+    "arg_types": [["field", "expr"]],
     "return_type": "expr"
   },
   "divide": {
@@ -143,14 +93,8 @@
     "min_args": 2,
     "max_args": 2,
     "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      [
-        "field",
-        "expr"
-      ]
+      ["field", "expr"],
+      ["field", "expr"]
     ],
     "return_type": "expr"
   },
@@ -160,16 +104,7 @@
     "description": "Minimum value of all inputs. At least 2 inputs are required",
     "min_args": 2,
     "max_args": null,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      [
-        "field",
-        "expr"
-      ]
-    ],
+    "var_args_type": ["field", "expr"],
     "return_type": "expr"
   },
   "tanh": {
@@ -178,12 +113,7 @@
     "description": "Hyperbolic tangent of x",
     "min_args": 1,
     "max_args": 1,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ]
-    ],
+    "arg_types": [["field", "expr"]],
     "return_type": "expr"
   },
   "signed_power": {
@@ -192,13 +122,7 @@
     "description": "x raised to the power of y such that final result preserves sign of x",
     "min_args": 2,
     "max_args": 2,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      "number"
-    ],
+    "arg_types": [["field", "expr"], "number"],
     "return_type": "expr"
   },
   "inverse": {
@@ -207,12 +131,7 @@
     "description": "1 / x",
     "min_args": 1,
     "max_args": 1,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ]
-    ],
+    "arg_types": [["field", "expr"]],
     "return_type": "expr"
   },
   "sqrt": {
@@ -221,12 +140,7 @@
     "description": "Square root of x",
     "min_args": 1,
     "max_args": 1,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ]
-    ],
+    "arg_types": [["field", "expr"]],
     "return_type": "expr"
   },
   "reverse": {
@@ -235,12 +149,7 @@
     "description": " - x",
     "min_args": 1,
     "max_args": 1,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ]
-    ],
+    "arg_types": [["field", "expr"]],
     "return_type": "expr"
   },
   "power": {
@@ -249,13 +158,7 @@
     "description": "x ^ y",
     "min_args": 2,
     "max_args": 2,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      "number"
-    ],
+    "arg_types": [["field", "expr"], "number"],
     "return_type": "expr"
   },
   "densify": {
@@ -264,12 +167,7 @@
     "description": "Converts a grouping field of many buckets into lesser number of only available buckets so as to make working with grouping fields computationally efficient",
     "min_args": 1,
     "max_args": 1,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ]
-    ],
+    "arg_types": [["field", "expr"]],
     "return_type": "expr"
   },
   "or": {
@@ -279,14 +177,8 @@
     "min_args": 2,
     "max_args": 2,
     "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      [
-        "field",
-        "expr"
-      ]
+      ["field", "expr"],
+      ["field", "expr"]
     ],
     "return_type": "expr"
   },
@@ -297,14 +189,8 @@
     "min_args": 2,
     "max_args": 2,
     "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      [
-        "field",
-        "expr"
-      ]
+      ["field", "expr"],
+      ["field", "expr"]
     ],
     "return_type": "expr"
   },
@@ -314,12 +200,7 @@
     "description": "Returns the logical negation of x. If x is true (1), it returns false (0), and if input is false (0), it returns true (1).",
     "min_args": 1,
     "max_args": 1,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ]
-    ],
+    "arg_types": [["field", "expr"]],
     "return_type": "expr"
   },
   "is_nan": {
@@ -328,12 +209,7 @@
     "description": "If (input == NaN) return 1 else return 0",
     "min_args": 1,
     "max_args": 1,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ]
-    ],
+    "arg_types": [["field", "expr"]],
     "return_type": "expr"
   },
   "less": {
@@ -343,16 +219,10 @@
     "min_args": 2,
     "max_args": 2,
     "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      [
-        "field",
-        "expr"
-      ]
+      ["field", "expr"],
+      ["field", "expr"]
     ],
-    "return_type": "expr"
+    "return_type": "boolean"
   },
   "equal": {
     "category": "Logical",
@@ -361,16 +231,10 @@
     "min_args": 2,
     "max_args": 2,
     "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      [
-        "field",
-        "expr"
-      ]
+      ["field", "expr"],
+      ["field", "expr"]
     ],
-    "return_type": "expr"
+    "return_type": "boolean"
   },
   "greater": {
     "category": "Logical",
@@ -379,16 +243,10 @@
     "min_args": 2,
     "max_args": 2,
     "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      [
-        "field",
-        "expr"
-      ]
+      ["field", "expr"],
+      ["field", "expr"]
     ],
-    "return_type": "expr"
+    "return_type": "boolean"
   },
   "if_else": {
     "category": "Logical",
@@ -396,20 +254,7 @@
     "description": "If input1 is true then return input2 else return input3.",
     "min_args": 3,
     "max_args": 3,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      [
-        "field",
-        "expr"
-      ],
-      [
-        "field",
-        "expr"
-      ]
-    ],
+    "arg_types": ["boolean", ["field", "expr"], ["field", "expr"]],
     "return_type": "expr"
   },
   "not_equal": {
@@ -419,16 +264,10 @@
     "min_args": 2,
     "max_args": 2,
     "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      [
-        "field",
-        "expr"
-      ]
+      ["field", "expr"],
+      ["field", "expr"]
     ],
-    "return_type": "expr"
+    "return_type": "boolean"
   },
   "less_equal": {
     "category": "Logical",
@@ -437,16 +276,10 @@
     "min_args": 2,
     "max_args": 2,
     "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      [
-        "field",
-        "expr"
-      ]
+      ["field", "expr"],
+      ["field", "expr"]
     ],
-    "return_type": "expr"
+    "return_type": "boolean"
   },
   "greater_equal": {
     "category": "Logical",
@@ -455,16 +288,10 @@
     "min_args": 2,
     "max_args": 2,
     "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      [
-        "field",
-        "expr"
-      ]
+      ["field", "expr"],
+      ["field", "expr"]
     ],
-    "return_type": "expr"
+    "return_type": "boolean"
   },
   "ts_corr": {
     "category": "Time Series",
@@ -472,17 +299,7 @@
     "description": "Returns correlation of x and y for the past d days",
     "min_args": 3,
     "max_args": 3,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      [
-        "field",
-        "expr"
-      ],
-      "number"
-    ],
+    "arg_types": [["field", "expr"], ["field", "expr"], "number"],
     "return_type": "expr"
   },
   "ts_zscore": {
@@ -491,13 +308,7 @@
     "description": "Z-score is a numerical measurement that describes a value's relationship to the mean of a group of values. Z-score is measured in terms of standard deviations from the mean: (x - tsmean(x,d)) / tsstddev(x,d). This operator may help reduce outliers and drawdown.",
     "min_args": 2,
     "max_args": 2,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      "number"
-    ],
+    "arg_types": [["field", "expr"], "number"],
     "return_type": "expr"
   },
   "ts_product": {
@@ -506,13 +317,7 @@
     "description": "Returns product of x for the past d days",
     "min_args": 2,
     "max_args": 2,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      "number"
-    ],
+    "arg_types": [["field", "expr"], "number"],
     "return_type": "expr"
   },
   "ts_std_dev": {
@@ -521,13 +326,7 @@
     "description": "Returns standard deviation of x for the past d days",
     "min_args": 2,
     "max_args": 2,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      "number"
-    ],
+    "arg_types": [["field", "expr"], "number"],
     "return_type": "expr"
   },
   "ts_backfill": {
@@ -536,14 +335,7 @@
     "description": "Backfill is the process of replacing the NAN or 0 values by a meaningful value (i.e., a first non-NaN value)",
     "min_args": 1,
     "max_args": 3,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      "number",
-      "number"
-    ],
+    "arg_types": [["field", "expr"], "number", "number"],
     "kwarg_types": {
       "lookback": "number",
       "k": "number",
@@ -557,9 +349,7 @@
     "description": "Amount of days since last change of x",
     "min_args": 1,
     "max_args": 1,
-    "arg_types": [
-      "number"
-    ],
+    "arg_types": ["number"],
     "return_type": "expr"
   },
   "last_diff_value": {
@@ -568,13 +358,7 @@
     "description": "Returns last x value not equal to current x value from last d days",
     "min_args": 2,
     "max_args": 2,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      "number"
-    ],
+    "arg_types": [["field", "expr"], "number"],
     "return_type": "expr"
   },
   "ts_scale": {
@@ -583,13 +367,7 @@
     "description": "Returns (x - ts_min(x, d)) / (ts_max(x, d) - ts_min(x, d)) + constant. This operator is similar to scale down operator but acts in time series space",
     "min_args": 2,
     "max_args": 2,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      "number"
-    ],
+    "arg_types": [["field", "expr"], "number"],
     "kwarg_types": {
       "constant": "number"
     },
@@ -601,13 +379,7 @@
     "description": "For each instrument, we collect values of input in the past d days and calculate the probability distribution then the information entropy via a histogram as a result",
     "min_args": 2,
     "max_args": 2,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      "number"
-    ],
+    "arg_types": [["field", "expr"], "number"],
     "return_type": "expr"
   },
   "ts_step": {
@@ -616,9 +388,7 @@
     "description": "Returns days' counter",
     "min_args": 1,
     "max_args": 1,
-    "arg_types": [
-      "number"
-    ],
+    "arg_types": ["number"],
     "return_type": "expr"
   },
   "ts_sum": {
@@ -627,13 +397,7 @@
     "description": "Sum values of x for the past d days.",
     "min_args": 2,
     "max_args": 2,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      "number"
-    ],
+    "arg_types": [["field", "expr"], "number"],
     "return_type": "expr"
   },
   "ts_av_diff": {
@@ -642,13 +406,7 @@
     "description": "Returns x - tsmean(x, d), but deals with NaNs carefully. That is NaNs are ignored during mean computation",
     "min_args": 2,
     "max_args": 2,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      "number"
-    ],
+    "arg_types": [["field", "expr"], "number"],
     "return_type": "expr"
   },
   "ts_mean": {
@@ -657,13 +415,7 @@
     "description": "Returns average value of x for the past d days.",
     "min_args": 2,
     "max_args": 2,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      "number"
-    ],
+    "arg_types": [["field", "expr"], "number"],
     "return_type": "expr"
   },
   "ts_min_max_diff": {
@@ -672,13 +424,7 @@
     "description": "Returns x - f * (ts_min(x, d) + ts_max(x, d)). If not specified, by default f = 0.5",
     "min_args": 2,
     "max_args": 2,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      "number"
-    ],
+    "arg_types": [["field", "expr"], "number"],
     "kwarg_types": {
       "f": "number"
     },
@@ -690,13 +436,7 @@
     "description": "Returns the relative index of the max value in the time series for the past d days. If the current day has the max value for the past d days, it returns 0. If previous day has the max value for the past d days, it returns 1",
     "min_args": 2,
     "max_args": 2,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      "number"
-    ],
+    "arg_types": [["field", "expr"], "number"],
     "return_type": "expr"
   },
   "ts_min_max_cps": {
@@ -705,13 +445,7 @@
     "description": "Returns (ts_min(x, d) + ts_max(x, d)) - f * x. If not specified, by default f = 2",
     "min_args": 2,
     "max_args": 2,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      "number"
-    ],
+    "arg_types": [["field", "expr"], "number"],
     "kwarg_types": {
       "f": "number"
     },
@@ -723,13 +457,7 @@
     "description": "Rank the values of x for each instrument over the past d days, then return the rank of the current value + constant. If not specified, by default, constant = 0.",
     "min_args": 2,
     "max_args": 2,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      "number"
-    ],
+    "arg_types": [["field", "expr"], "number"],
     "kwarg_types": {
       "constant": "number"
     },
@@ -741,13 +469,7 @@
     "description": "Returns x value d days ago",
     "min_args": 2,
     "max_args": 2,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      "number"
-    ],
+    "arg_types": [["field", "expr"], "number"],
     "return_type": "expr"
   },
   "ts_quantile": {
@@ -757,19 +479,9 @@
     "min_args": 2,
     "max_args": 2,
     "choices": {
-      "driver": [
-        "gaussian",
-        "uniform",
-        "cauchy"
-      ]
+      "driver": ["gaussian", "uniform", "cauchy"]
     },
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      "number"
-    ],
+    "arg_types": [["field", "expr"], "number"],
     "kwarg_types": {
       "driver": "string"
     },
@@ -789,17 +501,7 @@
     "description": "Returns covariance of y and x for the past d days",
     "min_args": 3,
     "max_args": 3,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      [
-        "field",
-        "expr"
-      ],
-      "number"
-    ],
+    "arg_types": [["field", "expr"], ["field", "expr"], "number"],
     "return_type": "expr"
   },
   "ts_min_diff": {
@@ -808,13 +510,7 @@
     "description": "Returns x - ts_min(x, d)",
     "min_args": 2,
     "max_args": 2,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      "number"
-    ],
+    "arg_types": [["field", "expr"], "number"],
     "return_type": "expr"
   },
   "ts_decay_linear": {
@@ -823,13 +519,7 @@
     "description": "Returns the linear decay on x for the past d days. Dense parameter=false means operator works in sparse mode and we treat NaN as 0. In dense mode we do not.",
     "min_args": 2,
     "max_args": 2,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      "number"
-    ],
+    "arg_types": [["field", "expr"], "number"],
     "kwarg_types": {
       "dense": "boolean"
     },
@@ -849,17 +539,7 @@
     "description": "Returns various parameters related to regression function",
     "min_args": 3,
     "max_args": 3,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      [
-        "field",
-        "expr"
-      ],
-      "number"
-    ],
+    "arg_types": [["field", "expr"], ["field", "expr"], "number"],
     "kwarg_types": {
       "lag": "number",
       "rettype": "number"
@@ -872,13 +552,7 @@
     "description": "Return skewness of x for the past d days",
     "min_args": 2,
     "max_args": 2,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      "number"
-    ],
+    "arg_types": [["field", "expr"], "number"],
     "return_type": "expr"
   },
   "kth_element": {
@@ -887,14 +561,7 @@
     "description": "Returns K-th value of input by looking through lookback days. This operator can be used to backfill missing data if k=1",
     "min_args": 3,
     "max_args": 3,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      "number",
-      "number"
-    ],
+    "arg_types": [["field", "expr"], "number", "number"],
     "return_type": "expr"
   },
   "hump": {
@@ -903,12 +570,7 @@
     "description": "Limits amount and magnitude of changes in input (thus reducing turnover)",
     "min_args": 1,
     "max_args": 1,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ]
-    ],
+    "arg_types": [["field", "expr"]],
     "kwarg_types": {
       "hump": "number"
     },
@@ -920,13 +582,7 @@
     "description": "Returns x - ts_delay(x, d)",
     "min_args": 2,
     "max_args": 2,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      "number"
-    ],
+    "arg_types": [["field", "expr"], "number"],
     "return_type": "expr"
   },
   "ts_target_tvr_decay": {
@@ -935,12 +591,7 @@
     "description": "Tune \"ts_decay\" to have a turnover equal to a certain target, with optimization weight range between lambda_min, lambda_max",
     "min_args": 1,
     "max_args": 1,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ]
-    ],
+    "arg_types": [["field", "expr"]],
     "kwarg_types": {
       "lambda_min": "number",
       "lambda_max": "number",
@@ -954,12 +605,7 @@
     "description": "Winsorizes x to make sure that all values in x are between the lower and upper limits, which are specified as multiple of std.",
     "min_args": 1,
     "max_args": 1,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ]
-    ],
+    "arg_types": [["field", "expr"]],
     "kwarg_types": {
       "std": "number"
     },
@@ -971,12 +617,7 @@
     "description": "Ranks the input among all the instruments and returns an equally distributed number between 0.0 and 1.0. For precise sort, use the rate as 0",
     "min_args": 1,
     "max_args": 1,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ]
-    ],
+    "arg_types": [["field", "expr"]],
     "kwarg_types": {
       "rate": "number"
     },
@@ -989,14 +630,8 @@
     "min_args": 2,
     "max_args": 2,
     "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      [
-        "field",
-        "expr"
-      ]
+      ["field", "expr"],
+      ["field", "expr"]
     ],
     "return_type": "expr"
   },
@@ -1007,14 +642,8 @@
     "min_args": 2,
     "max_args": 2,
     "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      [
-        "field",
-        "expr"
-      ]
+      ["field", "expr"],
+      ["field", "expr"]
     ],
     "return_type": "expr"
   },
@@ -1024,12 +653,7 @@
     "description": "Z-score is a numerical measurement that describes a value's relationship to the mean of a group of values. Z-score is measured in terms of standard deviations from the mean",
     "min_args": 1,
     "max_args": 1,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ]
-    ],
+    "arg_types": [["field", "expr"]],
     "return_type": "expr"
   },
   "scale": {
@@ -1038,12 +662,7 @@
     "description": "Scales input to booksize. We can also scale the long positions and short positions to separate scales by mentioning additional parameters to the operator",
     "min_args": 1,
     "max_args": 1,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ]
-    ],
+    "arg_types": [["field", "expr"]],
     "kwarg_types": {
       "scale": "number",
       "longscale": "number",
@@ -1057,12 +676,7 @@
     "description": "Calculates the mean value of all valid alpha values for a certain date, then subtracts that mean from each element",
     "min_args": 1,
     "max_args": 1,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ]
-    ],
+    "arg_types": [["field", "expr"]],
     "kwarg_types": {
       "useStd": "boolean",
       "limit": "number"
@@ -1076,18 +690,9 @@
     "min_args": 1,
     "max_args": null,
     "choices": {
-      "driver": [
-        "gaussian",
-        "uniform",
-        "cauchy"
-      ]
+      "driver": ["gaussian", "uniform", "cauchy"]
     },
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ]
-    ],
+    "arg_types": [["field", "expr"]],
     "kwarg_types": {
       "driver": "string"
     },
@@ -1100,14 +705,8 @@
     "min_args": 2,
     "max_args": 2,
     "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      [
-        "field",
-        "expr"
-      ]
+      ["field", "expr"],
+      ["field", "expr"]
     ],
     "return_type": "expr"
   },
@@ -1117,12 +716,7 @@
     "description": "Sum of vector field x",
     "min_args": 1,
     "max_args": 1,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ]
-    ],
+    "arg_types": [["field", "expr"]],
     "return_type": "expr"
   },
   "vec_avg": {
@@ -1131,12 +725,7 @@
     "description": "Taking mean of the vector field x",
     "min_args": 1,
     "max_args": 1,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ]
-    ],
+    "arg_types": [["field", "expr"]],
     "return_type": "expr"
   },
   "bucket": {
@@ -1145,12 +734,7 @@
     "description": "Convert float values into indexes for user-specified buckets. Bucket is useful for creating group values, which can be passed to GROUP as input",
     "min_args": 1,
     "max_args": 1,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ]
-    ],
+    "arg_types": [["field", "expr"]],
     "kwarg_types": {
       "range": "string",
       "buckets": "string"
@@ -1164,18 +748,9 @@
     "min_args": 3,
     "max_args": 3,
     "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      [
-        "field",
-        "expr"
-      ],
-      [
-        "field",
-        "expr"
-      ]
+      ["field", "expr"],
+      ["field", "expr"],
+      ["field", "expr"]
     ],
     "return_type": "expr"
   },
@@ -1185,12 +760,7 @@
     "description": "The generate_stats() operator calculates Alpha statistics for each day in the IS period. It takes an input of selected Alphas with shape = (A x D x I). It outputs daily statistics for each Alpha with shape = (S x D x A), where S is the number of statistics calculated.",
     "min_args": 1,
     "max_args": 1,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ]
-    ],
+    "arg_types": [["field", "expr"]],
     "return_type": "expr"
   },
   "group_mean": {
@@ -1200,18 +770,9 @@
     "min_args": 3,
     "max_args": 3,
     "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      [
-        "field",
-        "expr"
-      ],
-      [
-        "field",
-        "expr"
-      ]
+      ["field", "expr"],
+      ["field", "expr"],
+      ["field", "expr"]
     ],
     "return_type": "expr"
   },
@@ -1222,14 +783,8 @@
     "min_args": 2,
     "max_args": 2,
     "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      [
-        "field",
-        "expr"
-      ]
+      ["field", "expr"],
+      ["field", "expr"]
     ],
     "return_type": "expr"
   },
@@ -1240,18 +795,9 @@
     "min_args": 3,
     "max_args": 3,
     "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      [
-        "field",
-        "expr"
-      ],
-      [
-        "field",
-        "expr"
-      ]
+      ["field", "expr"],
+      ["field", "expr"],
+      ["field", "expr"]
     ],
     "return_type": "expr"
   },
@@ -1261,17 +807,7 @@
     "description": "If a certain value for a certain date and instrument is NaN, from the set of same group instruments, calculate winsorized mean of all non-NaN values over last d days",
     "min_args": 3,
     "max_args": 3,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      [
-        "field",
-        "expr"
-      ],
-      "number"
-    ],
+    "arg_types": [["field", "expr"], ["field", "expr"], "number"],
     "kwarg_types": {
       "std": "number"
     },
@@ -1284,14 +820,8 @@
     "min_args": 2,
     "max_args": 2,
     "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      [
-        "field",
-        "expr"
-      ]
+      ["field", "expr"],
+      ["field", "expr"]
     ],
     "return_type": "expr"
   },
@@ -1302,14 +832,8 @@
     "min_args": 2,
     "max_args": 2,
     "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      [
-        "field",
-        "expr"
-      ]
+      ["field", "expr"],
+      ["field", "expr"]
     ],
     "return_type": "expr"
   },
@@ -1320,14 +844,8 @@
     "min_args": 2,
     "max_args": 2,
     "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      [
-        "field",
-        "expr"
-      ]
+      ["field", "expr"],
+      ["field", "expr"]
     ],
     "return_type": "expr"
   },
@@ -1338,14 +856,8 @@
     "min_args": 2,
     "max_args": 2,
     "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      [
-        "field",
-        "expr"
-      ]
+      ["field", "expr"],
+      ["field", "expr"]
     ],
     "return_type": "expr"
   },
@@ -1355,12 +867,7 @@
     "description": "Combines multiple alpha signals into a single weighted output by balancing each alpha's historical return with its variability over the most recent nlength days.\r\n\r\nThe parameter mode selects one of the several weighted approaches (algo1, algo2, algo3), each of which handles the tradeoff between performance and stability differently.",
     "min_args": 1,
     "max_args": 1,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ]
-    ],
+    "arg_types": [["field", "expr"]],
     "kwarg_types": {
       "nlength": "number",
       "mode": "string"
@@ -1373,12 +880,7 @@
     "description": "Generate pnl per instruments. Please note that the use of the inst_pnl() operator in an Alpha Expression is considered as utilizing the pv1 dataset (Price Volume Data for Equity) since it relies on pv1 data for calculations.",
     "min_args": 1,
     "max_args": 1,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ]
-    ],
+    "arg_types": [["field", "expr"]],
     "return_type": "expr"
   },
   "self_corr": {
@@ -1387,12 +889,7 @@
     "description": "Taking an input matrix of (D x N) with lookback=\"K\", producing an output matrix of (D x N x N), where each output(di, j, k) refers to correlation of input(di-K:di, j) and input(di-K:di, k). Outputs (D x N x N) from the input of (D x N)",
     "min_args": 1,
     "max_args": 1,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ]
-    ],
+    "arg_types": [["field", "expr"]],
     "return_type": "expr"
   },
   "in": {
@@ -1425,12 +922,7 @@
     "description": "Average of non-NAN elements of d(..., :). Threshold: Minimum required number of valid (non-nan) values. If there is not enough valid values, then the output is nan. 0 means no limit.threshold (Default: 0) *** Takes an input 2-D or 3-D matrix with user-defined reducer, producing an output matrix. *If input matrix is (D x N), output matrix (D x 1) *If input matrix is (D x N X N), output matrix (D x N X 1) *The defined function is applied on the last dimension : output(I) = reduce(input(I, 0:N)).",
     "min_args": 1,
     "max_args": 1,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ]
-    ],
+    "arg_types": [["field", "expr"]],
     "kwarg_types": {
       "threshold": "number"
     },
@@ -1442,12 +934,7 @@
     "description": "Sum of power, sum(power(x, constant)). Threshold: precise, whether calculate power precise if constant greater than 4, default false constant=<integer value>, default:2 *** Takes an input 2-D or 3-D matrix with user-defined reducer, producing an output matrix. *If input matrix is (D x N), output matrix (D x 1) *If input matrix is (D x N X N), output matrix (D x N X 1) *The defined function is applied on the last dimension : output(I) = reduce(input(I, 0:N)).",
     "min_args": 1,
     "max_args": 1,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ]
-    ],
+    "arg_types": [["field", "expr"]],
     "kwarg_types": {
       "constant": "number",
       "precise": "boolean"
@@ -1460,12 +947,7 @@
     "description": "Maximum of elements of d(..., :) *** Takes an input 2-D or 3-D matrix with user-defined reducer, producing an output matrix. *If input matrix is (D x N), output matrix (D x 1) *If input matrix is (D x N X N), output matrix (D x N X 1) *The defined function is applied on the last dimension : output(I) = reduce(input(I, 0:N)).",
     "min_args": 1,
     "max_args": 1,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ]
-    ],
+    "arg_types": [["field", "expr"]],
     "return_type": "expr"
   },
   "reduce_min": {
@@ -1474,12 +956,7 @@
     "description": "Minimum of elements of d(..., :) ***Takes an input 2-D or 3-D matrix with user-defined reducer, producing an output matrix. \r\nIf input matrix is (D x N), output matrix (D x 1) \r\nIf input matrix is (D x N X N), output matrix (D x N X 1) \r\nThe defined function is applied on the last dimension : output(I) = reduce(input(I, 0:N)).",
     "min_args": 1,
     "max_args": 1,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ]
-    ],
+    "arg_types": [["field", "expr"]],
     "return_type": "expr"
   },
   "reduce_norm": {
@@ -1488,12 +965,7 @@
     "description": "Absolute sum of number of element of d(..., :) *** Takes an input 2-D or 3-D matrix with user-defined reducer, producing an output matrix. *If input matrix is (D x N), output matrix (D x 1) *If input matrix is (D x N X N), output matrix (D x N X 1) *The defined function is applied on the last dimension : output(I) = reduce(input(I, 0:N)).",
     "min_args": 1,
     "max_args": 1,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ]
-    ],
+    "arg_types": [["field", "expr"]],
     "return_type": "expr"
   },
   "reduce_sum": {
@@ -1502,12 +974,7 @@
     "description": "Sum the number of element of d(..., :) *** Takes an input 2-D or 3-D matrix with user-defined reducer, producing an output matrix. *If input matrix is (D x N), output matrix (D x 1) *If input matrix is (D x N X N), output matrix (D x N X 1) *The defined function is applied on the last dimension : output(I) = reduce(input(I, 0:N)).",
     "min_args": 1,
     "max_args": 1,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ]
-    ],
+    "arg_types": [["field", "expr"]],
     "return_type": "expr"
   },
   "reduce_range": {
@@ -1516,12 +983,7 @@
     "description": "Return the range of values in the array, return NAN if no valid value *** Takes an input 2-D or 3-D matrix with user-defined reducer, producing an output matrix. *If input matrix is (D x N), output matrix (D x 1) *If input matrix is (D x N X N), output matrix (D x N X 1) *The defined function is applied on the last dimension : output(I) = reduce(input(I, 0:N)).",
     "min_args": 1,
     "max_args": 1,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ]
-    ],
+    "arg_types": [["field", "expr"]],
     "return_type": "expr"
   },
   "reduce_percentage": {
@@ -1530,12 +992,7 @@
     "description": "Return the value of percentage in the sorted array: e.g., median value when percentage=0.5. Threshold: percentage=\"<value between 0 and 1>\" (Default: 0.5) *** Takes an input 2-D or 3-D matrix with user-defined reducer, producing an output matrix. *If input matrix is (D x N), output matrix (D x 1) *If input matrix is (D x N X N), output matrix (D x N X 1) *The defined function is applied on the last dimension : output(I) = reduce(input(I, 0:N)).",
     "min_args": 1,
     "max_args": 1,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ]
-    ],
+    "arg_types": [["field", "expr"]],
     "kwarg_types": {
       "percentage": "number"
     },
@@ -1547,12 +1004,7 @@
     "description": "Skewness of values in the array *** Takes an input 2-D or 3-D matrix with user-defined reducer, producing an output matrix. *If input matrix is (D x N), output matrix (D x 1) *If input matrix is (D x N X N), output matrix (D x N X 1) *The defined function is applied on the last dimension : output(I) = reduce(input(I, 0:N)).",
     "min_args": 1,
     "max_args": 1,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ]
-    ],
+    "arg_types": [["field", "expr"]],
     "return_type": "expr"
   },
   "reduce_count": {
@@ -1561,13 +1013,7 @@
     "description": "Count the number of element of d(..., :) > threshold. threshold=<float> *** Takes an input 2-D or 3-D matrix with user-defined reducer, producing an output matrix. *If input matrix is (D x N), output matrix (D x 1) *If input matrix is (D x N X N), output matrix (D x N X 1) *The defined function is applied on the last dimension : output(I) = reduce(input(I, 0:N)).",
     "min_args": 2,
     "max_args": 2,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      "number"
-    ],
+    "arg_types": [["field", "expr"], "number"],
     "kwarg_types": {
       "threshold": "number"
     },
@@ -1579,12 +1025,7 @@
     "description": "Kurtosis of values in the array ***Takes an input 2-D or 3-D matrix with user-defined reducer, producing an output matrix. \r\nIf input matrix is (D x N), output matrix (D x 1) \r\nIf input matrix is (D x N X N), output matrix (D x N X 1) \r\nThe defined function is applied on the last dimension : output(I) = reduce(input(I, 0:N)).",
     "min_args": 1,
     "max_args": 1,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ]
-    ],
+    "arg_types": [["field", "expr"]],
     "return_type": "expr"
   },
   "reduce_choose": {
@@ -1593,13 +1034,7 @@
     "description": "Choose the 'nth' element in the array, return NAN if not found. Threshold: nth=\"<the Nth element>\" (Required) ignoreNan=\"true|false\" (Default: true) *** Takes an input 2-D or 3-D matrix with user-defined reducer, producing an output matrix. *If input matrix is (D x N), output matrix (D x 1) *If input matrix is (D x N X N), output matrix (D x N X 1) *The defined function is applied on the last dimension : output(I) = reduce(input(I, 0:N)).",
     "min_args": 2,
     "max_args": 2,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ],
-      "number"
-    ],
+    "arg_types": [["field", "expr"], "number"],
     "kwarg_types": {
       "nth": "number",
       "ignoreNan": "boolean"
@@ -1612,12 +1047,7 @@
     "description": "Standard deviation of values in the array. Threshold: Minimum required percentage of valid (non-nan) values. If there is not enough valid values, then the output is NAN. 0 means no limit.threshold (Default: 0) *** Takes an input 2-D or 3-D matrix with user-defined reducer, producing an output matrix. *If input matrix is (D x N), output matrix (D x 1) *If input matrix is (D x N X N), output matrix (D x N X 1) *The defined function is applied on the last dimension : output(I) = reduce(input(I, 0:N)).",
     "min_args": 1,
     "max_args": 1,
-    "arg_types": [
-      [
-        "field",
-        "expr"
-      ]
-    ],
+    "arg_types": [["field", "expr"]],
     "kwarg_types": {
       "threshold": "number"
     },

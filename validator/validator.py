@@ -217,20 +217,8 @@ class ExprValidator(Transformer):
                 num_args = len(arg_nodes)
 
         if name not in valid_ops:
-            # 提供简洁的错误信息
+            # 简洁错误信息，无建议
             error_msg = f"未知操作符: {name}"
-
-            # 查找相似的操作符名
-            similar_ops = []
-            for op_name in valid_ops.keys():
-                if name.lower() in op_name.lower() or op_name.lower() in name.lower():
-                    similar_ops.append(op_name)
-                    if len(similar_ops) >= 3:  # 最多显示3个建议
-                        break
-
-            if similar_ops:
-                error_msg += f" (建议: {', '.join(similar_ops)})"
-
             self.errors.append(error_msg)
             return {"type": "function_call", "name": name, "return_type": "unknown"}
 
@@ -240,6 +228,7 @@ class ExprValidator(Transformer):
 
         pos_types = op.get("arg_types", [])
         kw_types = op.get("kwarg_types", {})
+        var_args_type = op.get("var_args_type")  # 可变参数类型
 
         # 分别计算位置参数和命名参数
         pos_args = []
@@ -264,11 +253,20 @@ class ExprValidator(Transformer):
         # 检查位置参数类型
         for i, node in enumerate(pos_args):
             if i < len(pos_types):
+                # 固定位置参数
                 expect_type = pos_types[i]
                 actual_type = self._get_node_type(node)
                 if not self._is_type_compatible(expect_type, actual_type):
                     self.errors.append(
                         f"{name} 的第{i+1}个位置参数类型应为 {expect_type}，实际为 {actual_type}"
+                    )
+            elif var_args_type:
+                # 可变参数，使用 var_args_type
+                expect_type = var_args_type
+                actual_type = self._get_node_type(node)
+                if not self._is_type_compatible(expect_type, actual_type):
+                    self.errors.append(
+                        f"{name} 的第{i+1}个可变参数类型应为 {expect_type}，实际为 {actual_type}"
                     )
             elif len(pos_types) > 0:
                 # 对于可变参数，使用最后一个类型定义
@@ -331,6 +329,10 @@ class ExprValidator(Transformer):
         if chinese_pattern.search(field_name):
             self.errors.append(f"字段名 '{field_name}' 包含中文字符，不支持")
 
+        # 处理布尔字面量
+        if field_name in ["true", "false", "True", "False"]:
+            return {"type": "boolean", "name": field_name, "return_type": "boolean"}
+
         # 首先检查是否是变量
         if field_name in self.variables:
             return {
@@ -341,25 +343,8 @@ class ExprValidator(Transformer):
         elif field_name in self.valid_field_names:
             return {"type": "field", "name": field_name, "return_type": "field"}
         else:
-            # 提供简洁的错误信息
+            # 简洁错误信息，无建议
             error_msg = f"未知字段: {field_name}"
-
-            # 如果是变量名，提供建议
-            if field_name not in self.variables:
-                # 查找相似的字段名
-                similar_fields = []
-                for valid_field in self.valid_field_names:
-                    if (
-                        field_name.lower() in valid_field.lower()
-                        or valid_field.lower() in field_name.lower()
-                    ):
-                        similar_fields.append(valid_field)
-                        if len(similar_fields) >= 3:  # 最多显示3个建议
-                            break
-
-                if similar_fields:
-                    error_msg += f" (建议: {', '.join(similar_fields)})"
-
             self.errors.append(error_msg)
             return {"type": "field", "name": field_name, "return_type": "unknown"}
 
@@ -392,6 +377,10 @@ class ExprValidator(Transformer):
         if expected == "boolean" and actual == "boolean":
             return True
 
+        # boolean 兼容 expr（布尔表达式可以接受任何表达式）
+        if expected == "boolean" and actual in ["expr", "field", "number"]:
+            return True
+
         return False
 
     def _get_node_type(self, node, visited=None):
@@ -405,6 +394,8 @@ class ExprValidator(Transformer):
                 return "number"
             if node.type == "ESCAPED_STRING":
                 return "string"
+            if node.type == "BOOLEAN":
+                return "boolean"
             if node.type == "CNAME":
                 val = str(node)
                 if val in ["true", "false", "True", "False"]:
@@ -426,9 +417,19 @@ class ExprValidator(Transformer):
                 return "number"
             if node.data == "string":
                 return "string"
+            if node.data == "boolean":
+                return "boolean"
             if node.data == "field":
                 # field 规则下只有一个子节点，直接递归
                 child_type = self._get_node_type(node.children[0], visited)
+                # 如果子节点是布尔字面量，直接返回boolean
+                if isinstance(node.children[0], Token) and str(node.children[0]) in [
+                    "true",
+                    "false",
+                    "True",
+                    "False",
+                ]:
+                    return "boolean"
                 if child_type == "field":
                     return "field"
                 elif child_type in ["expr", "number", "string", "boolean"]:
@@ -480,6 +481,9 @@ class ExprValidator(Transformer):
                     return "expr"
                 elif node.children:
                     return self._get_node_type(node.children[0], visited)
+            elif node.data in ["greater", "greater_eq", "less", "less_eq", "eq", "neq"]:
+                # 比较操作符返回boolean类型
+                return "boolean"
         elif isinstance(node, dict):
             # 处理函数调用返回的字典
             if node.get("type") == "function_call":
@@ -490,6 +494,10 @@ class ExprValidator(Transformer):
                 # 递归查找变量真实类型
                 var_name = node.get("name")
                 return self._resolve_variable_type(var_name, visited)
+            elif node.get("type") == "boolean":
+                return "boolean"
+            else:
+                return node.get("return_type", "unknown")
         return "unknown"
 
 

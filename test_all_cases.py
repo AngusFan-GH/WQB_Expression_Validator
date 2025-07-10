@@ -286,6 +286,46 @@ def test_all_cases():
             "expr": "a = ts_mean(close, 20); b = group_rank(a, sector); c = b * 2; ts_rank(c, 10)",
             "should_fail": False,
         },
+        {
+            "name": "可变参数类型检查",
+            "expr": "multiply(close ,volume,volume,volume , filter=false)",
+            "should_fail": False,
+        },
+        {
+            "name": "可变参数类型检查2",
+            "expr": "min(close ,volume , close, volume)",
+            "should_fail": False,
+        },
+        {
+            "name": "可变参数类型检查3",
+            "expr": "max(close ,volume , close, volume, close, volume)",
+            "should_fail": False,
+        },
+        {
+            "name": "if-else表达式",
+            "expr": "if(rank(close) > 0.1, volume, ts_rank(close, 10))",
+            "should_fail": True,
+        },
+        {
+            "name": "if-else表达式2",
+            "expr": "c=rank(close) > 0.1;if_else(c, volume, ts_rank(close, 10))",
+            "should_fail": False,
+        },
+        {
+            "name": "if-else表达式3",
+            "expr": "c=rank(close) > 0.1;a=ts_rank(close, 10);if_else(c, volume, a)",
+            "should_fail": False,
+        },
+        {
+            "name": "if-else直接比较表达式",
+            "expr": "if_else(rank(close) > 0.1, volume, ts_rank(close, 10))",
+            "should_fail": False,
+        },
+        {
+            "name": "ts_regression",
+            "expr": "ts_regression(volume , close, 10, lag=0, rettype=0)",
+            "should_fail": False,
+        },
     ]
     print("=== 全面表达式校验测试 ===\n")
     for i, test_case in enumerate(test_cases, 1):

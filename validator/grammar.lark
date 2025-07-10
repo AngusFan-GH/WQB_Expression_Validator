@@ -39,6 +39,7 @@ assignment: CNAME "=" expr -> assignment
            | atom
 
 ?atom: function
+     | BOOLEAN                        -> boolean
      | CNAME                          -> field
      | SIGNED_NUMBER                  -> number
      | ESCAPED_STRING                 -> string
@@ -62,5 +63,6 @@ kwarg: CNAME "=" expr
 
 COMMENT: /#[^\n]*/
 ML_COMMENT: /\/\*[\s\S]*?\*\//
+BOOLEAN: /true|false|True|False/
 %ignore COMMENT
 %ignore ML_COMMENT
