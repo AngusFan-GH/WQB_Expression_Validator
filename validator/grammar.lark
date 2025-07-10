@@ -1,0 +1,48 @@
+?start: expr
+
+?expr: logic_or
+
+?logic_or: logic_and
+         | logic_or "or" logic_and   -> or_
+
+?logic_and: logic_not
+          | logic_and "and" logic_not -> and_
+
+?logic_not: comparison
+          | "not" logic_not           -> not_
+
+?comparison: add_expr
+           | add_expr ">" add_expr    -> greater
+           | add_expr ">=" add_expr   -> greater_eq
+           | add_expr "<" add_expr    -> less
+           | add_expr "<=" add_expr   -> less_eq
+           | add_expr "==" add_expr   -> eq
+           | add_expr "!=" add_expr   -> neq
+
+?add_expr: mul_expr
+         | add_expr "+" mul_expr      -> add
+         | add_expr "-" mul_expr      -> subtract
+
+?mul_expr: unary_expr
+         | mul_expr "*" unary_expr    -> multiply
+         | mul_expr "/" unary_expr    -> divide
+
+?unary_expr: "-" unary_expr           -> reverse
+           | atom
+
+?atom: function
+     | CNAME                          -> field
+     | SIGNED_NUMBER                  -> number
+     | ESCAPED_STRING                 -> string
+     | "(" expr ")"
+
+function: CNAME "(" [args] ")"
+args: expr_or_kwarg ("," expr_or_kwarg)*
+?expr_or_kwarg: expr | kwarg
+kwarg: CNAME "=" expr
+
+%import common.CNAME
+%import common.SIGNED_NUMBER
+%import common.ESCAPED_STRING
+%import common.WS
+%ignore WS
