@@ -4,245 +4,578 @@
     "definition": "add(x, y, filter = false), x + y",
     "description": "Add all inputs (at least 2 inputs required). If filter = true, filter all input NaN to 0 before adding",
     "min_args": 2,
-    "max_args": 2
+    "max_args": 2,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "kwarg_types": {
+      "filter": "boolean"
+    },
+    "return_type": "expr"
   },
   "multiply": {
     "category": "Arithmetic",
     "definition": "multiply(x ,y, ... , filter=false), x * y",
     "description": "Multiply all inputs. At least 2 inputs are required. Filter sets the NaN values to 1",
-    "min_args": 3,
-    "max_args": null
+    "min_args": 2,
+    "max_args": null,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "kwarg_types": {
+      "filter": "boolean"
+    },
+    "return_type": "expr"
   },
   "sign": {
     "category": "Arithmetic",
     "definition": "sign(x)",
     "description": "if input = NaN; return NaN",
     "min_args": 1,
-    "max_args": 1
+    "max_args": 1,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "subtract": {
     "category": "Arithmetic",
     "definition": "subtract(x, y, filter=false), x - y",
     "description": "x-y. If filter = true, filter all input NaN to 0 before subtracting",
     "min_args": 2,
-    "max_args": 2
+    "max_args": 2,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "kwarg_types": {
+      "filter": "boolean"
+    },
+    "return_type": "expr"
   },
   "log": {
     "category": "Arithmetic",
     "definition": "log(x)",
     "description": "Natural logarithm. For example: Log(high/low) uses natural logarithm of high/low ratio as stock weights.",
     "min_args": 1,
-    "max_args": 1
+    "max_args": 1,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "max": {
     "category": "Arithmetic",
     "definition": "max(x, y, ..)",
     "description": "Maximum value of all inputs. At least 2 inputs are required",
-    "min_args": 3,
-    "max_args": 3
+    "min_args": 2,
+    "max_args": null,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "abs": {
     "category": "Arithmetic",
     "definition": "abs(x)",
     "description": "Absolute value of x",
     "min_args": 1,
-    "max_args": 1
+    "max_args": 1,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "sigmoid": {
     "category": "Arithmetic",
     "definition": "sigmoid(x)",
     "description": "Returns 1 / (1 + exp(-x))",
     "min_args": 1,
-    "max_args": 1
+    "max_args": 1,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "divide": {
     "category": "Arithmetic",
     "definition": "divide(x, y), x / y",
     "description": "x / y",
     "min_args": 2,
-    "max_args": 2
+    "max_args": 2,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "min": {
     "category": "Arithmetic",
     "definition": "min(x, y ..)",
     "description": "Minimum value of all inputs. At least 2 inputs are required",
     "min_args": 2,
-    "max_args": 2
+    "max_args": null,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "tanh": {
     "category": "Arithmetic",
     "definition": "tanh(x)",
     "description": "Hyperbolic tangent of x",
     "min_args": 1,
-    "max_args": 1
+    "max_args": 1,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "signed_power": {
     "category": "Arithmetic",
     "definition": "signed_power(x, y)",
     "description": "x raised to the power of y such that final result preserves sign of x",
     "min_args": 2,
-    "max_args": 2
+    "max_args": 2,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      "number"
+    ],
+    "return_type": "expr"
   },
   "inverse": {
     "category": "Arithmetic",
     "definition": "inverse(x)",
     "description": "1 / x",
     "min_args": 1,
-    "max_args": 1
+    "max_args": 1,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "sqrt": {
     "category": "Arithmetic",
     "definition": "sqrt(x)",
     "description": "Square root of x",
     "min_args": 1,
-    "max_args": 1
+    "max_args": 1,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "reverse": {
     "category": "Arithmetic",
     "definition": "reverse(x)",
-    "description": " - x",
+    "description": " - x",
     "min_args": 1,
-    "max_args": 1
+    "max_args": 1,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "power": {
     "category": "Arithmetic",
     "definition": "power(x, y)",
     "description": "x ^ y",
     "min_args": 2,
-    "max_args": 2
+    "max_args": 2,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      "number"
+    ],
+    "return_type": "expr"
   },
   "densify": {
     "category": "Arithmetic",
     "definition": "densify(x)",
     "description": "Converts a grouping field of many buckets into lesser number of only available buckets so as to make working with grouping fields computationally efficient",
     "min_args": 1,
-    "max_args": 1
+    "max_args": 1,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "or": {
     "category": "Logical",
     "definition": "or(input1, input2)",
     "description": "Logical OR operator returns true if either or both inputs are true and returns false otherwise",
     "min_args": 2,
-    "max_args": 2
+    "max_args": 2,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "and": {
     "category": "Logical",
     "definition": "and(input1, input2)",
     "description": "Logical AND operator, returns true if both operands are true and returns false otherwise",
     "min_args": 2,
-    "max_args": 2
+    "max_args": 2,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "not": {
     "category": "Logical",
     "definition": "not(x)",
     "description": "Returns the logical negation of x. If x is true (1), it returns false (0), and if input is false (0), it returns true (1).",
     "min_args": 1,
-    "max_args": 1
+    "max_args": 1,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "is_nan": {
     "category": "Logical",
     "definition": "is_nan(input)",
     "description": "If (input == NaN) return 1 else return 0",
     "min_args": 1,
-    "max_args": 1
+    "max_args": 1,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "less": {
     "category": "Logical",
     "definition": "input1 < input2",
     "description": "If input1 < input2 return true, else return false",
-    "min_args": 0,
-    "max_args": null
+    "min_args": 2,
+    "max_args": 2,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "equal": {
     "category": "Logical",
     "definition": "input1 == input2",
     "description": "Returns true if both inputs are same and returns false otherwise",
-    "min_args": 0,
-    "max_args": null
+    "min_args": 2,
+    "max_args": 2,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "greater": {
     "category": "Logical",
     "definition": "input1 > input2",
     "description": "Logic comparison operators to compares two inputs",
-    "min_args": 0,
-    "max_args": null
+    "min_args": 2,
+    "max_args": 2,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "if_else": {
     "category": "Logical",
     "definition": "if_else(input1, input2, input 3)",
     "description": "If input1 is true then return input2 else return input3.",
     "min_args": 3,
-    "max_args": 3
+    "max_args": 3,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      [
+        "field",
+        "expr"
+      ],
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "not_equal": {
     "category": "Logical",
     "definition": "input1!= input2",
     "description": "Returns true if both inputs are NOT the same and returns false otherwise",
-    "min_args": 0,
-    "max_args": null
+    "min_args": 2,
+    "max_args": 2,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "less_equal": {
     "category": "Logical",
     "definition": "input1 <= input2",
     "description": "Returns true if input1 <= input2, return false otherwise",
-    "min_args": 0,
-    "max_args": null
+    "min_args": 2,
+    "max_args": 2,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "greater_equal": {
     "category": "Logical",
     "definition": "input1 >= input2",
     "description": "Returns true if input1 >= input2, return false otherwise",
-    "min_args": 0,
-    "max_args": null
+    "min_args": 2,
+    "max_args": 2,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "ts_corr": {
     "category": "Time Series",
     "definition": "ts_corr(x, y, d)",
     "description": "Returns correlation of x and y for the past d days",
     "min_args": 3,
-    "max_args": 3
+    "max_args": 3,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      [
+        "field",
+        "expr"
+      ],
+      "number"
+    ],
+    "return_type": "expr"
   },
   "ts_zscore": {
     "category": "Time Series",
     "definition": "ts_zscore(x, d)",
     "description": "Z-score is a numerical measurement that describes a value's relationship to the mean of a group of values. Z-score is measured in terms of standard deviations from the mean: (x - tsmean(x,d)) / tsstddev(x,d). This operator may help reduce outliers and drawdown.",
     "min_args": 2,
-    "max_args": 2
+    "max_args": 2,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      "number"
+    ],
+    "return_type": "expr"
   },
   "ts_product": {
     "category": "Time Series",
     "definition": "ts_product(x, d)",
     "description": "Returns product of x for the past d days",
     "min_args": 2,
-    "max_args": 2
+    "max_args": 2,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      "number"
+    ],
+    "return_type": "expr"
   },
   "ts_std_dev": {
     "category": "Time Series",
     "definition": "ts_std_dev(x, d)",
     "description": "Returns standard deviation of x for the past d days",
     "min_args": 2,
-    "max_args": 2
+    "max_args": 2,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      "number"
+    ],
+    "return_type": "expr"
   },
   "ts_backfill": {
     "category": "Time Series",
     "definition": "ts_backfill(x,lookback = d, k=1, ignore=\"NAN\")",
     "description": "Backfill is the process of replacing the NAN or 0 values by a meaningful value (i.e., a first non-NaN value)",
     "min_args": 1,
-    "max_args": 1
+    "max_args": 3,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      "number",
+      "number"
+    ],
+    "kwarg_types": {
+      "lookback": "number",
+      "k": "number",
+      "ignore": "string"
+    },
+    "return_type": "expr"
   },
   "days_from_last_change": {
     "category": "Time Series",
     "definition": "days_from_last_change(x)",
     "description": "Amount of days since last change of x",
     "min_args": 1,
-    "max_args": 1
+    "max_args": 1,
+    "arg_types": [
+      "number"
+    ],
+    "return_type": "expr"
   },
   "last_diff_value": {
     "category": "Time Series",
     "definition": "last_diff_value(x, d)",
     "description": "Returns last x value not equal to current x value from last d days",
     "min_args": 2,
-    "max_args": 2
+    "max_args": 2,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      "number"
+    ],
+    "return_type": "expr"
   },
   "ts_scale": {
     "category": "Time Series",
@@ -250,66 +583,139 @@
     "description": "Returns (x - ts_min(x, d)) / (ts_max(x, d) - ts_min(x, d)) + constant. This operator is similar to scale down operator but acts in time series space",
     "min_args": 2,
     "max_args": 2,
-    "arg_types": ["field", "number"],
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      "number"
+    ],
     "kwarg_types": {
       "constant": "number"
-    }
+    },
+    "return_type": "expr"
   },
   "ts_entropy": {
     "category": "Time Series",
     "definition": "ts_entropy(x,d)",
     "description": "For each instrument, we collect values of input in the past d days and calculate the probability distribution then the information entropy via a histogram as a result",
     "min_args": 2,
-    "max_args": 2
+    "max_args": 2,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      "number"
+    ],
+    "return_type": "expr"
   },
   "ts_step": {
     "category": "Time Series",
     "definition": "ts_step(1)",
     "description": "Returns days' counter",
     "min_args": 1,
-    "max_args": 1
+    "max_args": 1,
+    "arg_types": [
+      "number"
+    ],
+    "return_type": "expr"
   },
   "ts_sum": {
     "category": "Time Series",
     "definition": "ts_sum(x, d)",
     "description": "Sum values of x for the past d days.",
     "min_args": 2,
-    "max_args": 2
+    "max_args": 2,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      "number"
+    ],
+    "return_type": "expr"
   },
   "ts_av_diff": {
     "category": "Time Series",
     "definition": "ts_av_diff(x, d)",
     "description": "Returns x - tsmean(x, d), but deals with NaNs carefully. That is NaNs are ignored during mean computation",
     "min_args": 2,
-    "max_args": 2
+    "max_args": 2,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      "number"
+    ],
+    "return_type": "expr"
   },
   "ts_mean": {
     "category": "Time Series",
     "definition": "ts_mean(x, d)",
     "description": "Returns average value of x for the past d days.",
     "min_args": 2,
-    "max_args": 2
+    "max_args": 2,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      "number"
+    ],
+    "return_type": "expr"
   },
   "ts_min_max_diff": {
     "category": "Time Series",
     "definition": "ts_min_max_diff(x, d, f = 0.5)",
     "description": "Returns x - f * (ts_min(x, d) + ts_max(x, d)). If not specified, by default f = 0.5",
     "min_args": 2,
-    "max_args": 2
+    "max_args": 2,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      "number"
+    ],
+    "kwarg_types": {
+      "f": "number"
+    },
+    "return_type": "expr"
   },
   "ts_arg_max": {
     "category": "Time Series",
     "definition": "ts_arg_max(x, d)",
     "description": "Returns the relative index of the max value in the time series for the past d days. If the current day has the max value for the past d days, it returns 0. If previous day has the max value for the past d days, it returns 1",
     "min_args": 2,
-    "max_args": 2
+    "max_args": 2,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      "number"
+    ],
+    "return_type": "expr"
   },
   "ts_min_max_cps": {
     "category": "Time Series",
     "definition": "ts_min_max_cps(x, d, f = 2)",
     "description": "Returns (ts_min(x, d) + ts_max(x, d)) - f * x. If not specified, by default f = 2",
     "min_args": 2,
-    "max_args": 2
+    "max_args": 2,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      "number"
+    ],
+    "kwarg_types": {
+      "f": "number"
+    },
+    "return_type": "expr"
   },
   "ts_rank": {
     "category": "Time Series",
@@ -317,17 +723,32 @@
     "description": "Rank the values of x for each instrument over the past d days, then return the rank of the current value + constant. If not specified, by default, constant = 0.",
     "min_args": 2,
     "max_args": 2,
-    "arg_types": ["field", "number"],
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      "number"
+    ],
     "kwarg_types": {
       "constant": "number"
-    }
+    },
+    "return_type": "expr"
   },
   "ts_delay": {
     "category": "Time Series",
     "definition": "ts_delay(x, d)",
     "description": "Returns x value d days ago",
     "min_args": 2,
-    "max_args": 2
+    "max_args": 2,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      "number"
+    ],
+    "return_type": "expr"
   },
   "ts_quantile": {
     "category": "Time Series",
@@ -336,33 +757,65 @@
     "min_args": 2,
     "max_args": 2,
     "choices": {
-      "driver": ["gaussian", "uniform", "cauchy"]
+      "driver": [
+        "gaussian",
+        "uniform",
+        "cauchy"
+      ]
     },
-    "arg_types": ["field", "number"],
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      "number"
+    ],
     "kwarg_types": {
       "driver": "string"
-    }
+    },
+    "return_type": "expr"
   },
   "ts_count_nans": {
     "category": "Time Series",
     "definition": "ts_count_nans(x ,d)",
     "description": "Returns the number of NaN values in x for the past d days",
     "min_args": 2,
-    "max_args": 2
+    "max_args": 2,
+    "return_type": "expr"
   },
   "ts_covariance": {
     "category": "Time Series",
     "definition": "ts_covariance(y, x, d)",
     "description": "Returns covariance of y and x for the past d days",
     "min_args": 3,
-    "max_args": 3
+    "max_args": 3,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      [
+        "field",
+        "expr"
+      ],
+      "number"
+    ],
+    "return_type": "expr"
   },
   "ts_min_diff": {
     "category": "Time Series",
     "definition": "ts_min_diff(x, d)",
     "description": "Returns x - ts_min(x, d)",
     "min_args": 2,
-    "max_args": 2
+    "max_args": 2,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      "number"
+    ],
+    "return_type": "expr"
   },
   "ts_decay_linear": {
     "category": "Time Series",
@@ -370,59 +823,130 @@
     "description": "Returns the linear decay on x for the past d days. Dense parameter=false means operator works in sparse mode and we treat NaN as 0. In dense mode we do not.",
     "min_args": 2,
     "max_args": 2,
-    "arg_types": ["field", "number"],
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      "number"
+    ],
     "kwarg_types": {
       "dense": "boolean"
-    }
+    },
+    "return_type": "expr"
   },
   "ts_arg_min": {
     "category": "Time Series",
     "definition": "ts_arg_min(x, d)",
     "description": "Returns the relative index of the min value in the time series for the past d days; If the current day has the min value for the past d days, it returns 0; If previous day has the min value for the past d days, it returns 1.",
     "min_args": 2,
-    "max_args": 2
+    "max_args": 2,
+    "return_type": "expr"
   },
   "ts_regression": {
     "category": "Time Series",
     "definition": "ts_regression(y, x, d, lag = 0, rettype = 0)",
     "description": "Returns various parameters related to regression function",
     "min_args": 3,
-    "max_args": 3
+    "max_args": 3,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      [
+        "field",
+        "expr"
+      ],
+      "number"
+    ],
+    "kwarg_types": {
+      "lag": "number",
+      "rettype": "number"
+    },
+    "return_type": "expr"
   },
   "ts_skewness": {
     "category": "Time Series",
     "definition": "ts_skewness(x, d)",
     "description": "Return skewness of x for the past d days",
     "min_args": 2,
-    "max_args": 2
+    "max_args": 2,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      "number"
+    ],
+    "return_type": "expr"
   },
   "kth_element": {
     "category": "Time Series",
     "definition": "kth_element(x, d, k)",
     "description": "Returns K-th value of input by looking through lookback days. This operator can be used to backfill missing data if k=1",
     "min_args": 3,
-    "max_args": 3
+    "max_args": 3,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      "number",
+      "number"
+    ],
+    "return_type": "expr"
   },
   "hump": {
     "category": "Time Series",
     "definition": "hump(x, hump = 0.01)",
     "description": "Limits amount and magnitude of changes in input (thus reducing turnover)",
     "min_args": 1,
-    "max_args": 1
+    "max_args": 1,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "kwarg_types": {
+      "hump": "number"
+    },
+    "return_type": "expr"
   },
   "ts_delta": {
     "category": "Time Series",
     "definition": "ts_delta(x, d)",
     "description": "Returns x - ts_delay(x, d)",
     "min_args": 2,
-    "max_args": 2
+    "max_args": 2,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      "number"
+    ],
+    "return_type": "expr"
   },
   "ts_target_tvr_decay": {
     "category": "Time Series",
     "definition": "ts_target_tvr_decay(x, lambda_min=0, lambda_max=1, target_tvr=0.1)",
     "description": "Tune \"ts_decay\" to have a turnover equal to a certain target, with optimization weight range between lambda_min, lambda_max",
     "min_args": 1,
-    "max_args": 1
+    "max_args": 1,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "kwarg_types": {
+      "lambda_min": "number",
+      "lambda_max": "number",
+      "target_tvr": "number"
+    },
+    "return_type": "expr"
   },
   "winsorize": {
     "category": "Cross Sectional",
@@ -430,10 +954,16 @@
     "description": "Winsorizes x to make sure that all values in x are between the lower and upper limits, which are specified as multiple of std.",
     "min_args": 1,
     "max_args": 1,
-    "arg_types": ["field"],
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ]
+    ],
     "kwarg_types": {
       "std": "number"
-    }
+    },
+    "return_type": "expr"
   },
   "rank": {
     "category": "Cross Sectional",
@@ -441,31 +971,66 @@
     "description": "Ranks the input among all the instruments and returns an equally distributed number between 0.0 and 1.0. For precise sort, use the rate as 0",
     "min_args": 1,
     "max_args": 1,
-    "arg_types": ["field"],
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ]
+    ],
     "kwarg_types": {
       "rate": "number"
-    }
+    },
+    "return_type": "expr"
   },
   "regression_proj": {
     "category": "Cross Sectional",
     "definition": "regression_proj(y, x)",
     "description": "Conducts the cross-sectional regression on the stocks with Y as target and X as the independent variable",
     "min_args": 2,
-    "max_args": 2
+    "max_args": 2,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "vector_neut": {
     "category": "Cross Sectional",
     "definition": "vector_neut(x, y)",
     "description": "For given vectors x and y, it finds a new vector x* (output) such that x* is orthogonal to y",
     "min_args": 2,
-    "max_args": 2
+    "max_args": 2,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "zscore": {
     "category": "Cross Sectional",
     "definition": "zscore(x)",
     "description": "Z-score is a numerical measurement that describes a value's relationship to the mean of a group of values. Z-score is measured in terms of standard deviations from the mean",
     "min_args": 1,
-    "max_args": 1
+    "max_args": 1,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "scale": {
     "category": "Cross Sectional",
@@ -473,19 +1038,36 @@
     "description": "Scales input to booksize. We can also scale the long positions and short positions to separate scales by mentioning additional parameters to the operator",
     "min_args": 1,
     "max_args": 1,
-    "arg_types": ["field"],
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ]
+    ],
     "kwarg_types": {
       "scale": "number",
       "longscale": "number",
       "shortscale": "number"
-    }
+    },
+    "return_type": "expr"
   },
   "normalize": {
     "category": "Cross Sectional",
     "definition": "normalize(x, useStd = false, limit = 0.0)",
     "description": "Calculates the mean value of all valid alpha values for a certain date, then subtracts that mean from each element",
     "min_args": 1,
-    "max_args": 1
+    "max_args": 1,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "kwarg_types": {
+      "useStd": "boolean",
+      "limit": "number"
+    },
+    "return_type": "expr"
   },
   "quantile": {
     "category": "Cross Sectional",
@@ -494,242 +1076,551 @@
     "min_args": 1,
     "max_args": null,
     "choices": {
-      "driver": ["gaussian", "uniform", "cauchy"]
+      "driver": [
+        "gaussian",
+        "uniform",
+        "cauchy"
+      ]
     },
-    "arg_types": ["field"],
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ]
+    ],
     "kwarg_types": {
       "driver": "string"
-    }
+    },
+    "return_type": "expr"
   },
   "vector_proj": {
     "category": "Cross Sectional",
     "definition": "vector_proj(x, y)",
     "description": "Returns vector projection of x onto y.",
     "min_args": 2,
-    "max_args": 2
+    "max_args": 2,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "vec_sum": {
     "category": "Vector",
     "definition": "vec_sum(x)",
     "description": "Sum of vector field x",
     "min_args": 1,
-    "max_args": 1
+    "max_args": 1,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "vec_avg": {
     "category": "Vector",
     "definition": "vec_avg(x)",
     "description": "Taking mean of the vector field x",
     "min_args": 1,
-    "max_args": 1
+    "max_args": 1,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "bucket": {
     "category": "Transformational",
     "definition": "bucket(rank(x), range=\"0, 1, 0.1\" or buckets = \"2,5,6,7,10\")",
     "description": "Convert float values into indexes for user-specified buckets. Bucket is useful for creating group values, which can be passed to GROUP as input",
     "min_args": 1,
-    "max_args": 1
+    "max_args": 1,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "kwarg_types": {
+      "range": "string",
+      "buckets": "string"
+    },
+    "return_type": "expr"
   },
   "trade_when": {
     "category": "Transformational",
     "definition": "trade_when(x, y, z)",
     "description": "Used in order to change Alpha values only under a specified condition and to hold Alpha values in other cases. It also allows to close Alpha positions (assign NaN values) under a specified condition",
     "min_args": 3,
-    "max_args": 3
+    "max_args": 3,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      [
+        "field",
+        "expr"
+      ],
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "generate_stats": {
     "category": "Transformational",
     "definition": "generate_stats(alpha)",
     "description": "The generate_stats() operator calculates Alpha statistics for each day in the IS period. It takes an input of selected Alphas with shape = (A x D x I). It outputs daily statistics for each Alpha with shape = (S x D x A), where S is the number of statistics calculated.",
     "min_args": 1,
-    "max_args": 1
+    "max_args": 1,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "group_mean": {
     "category": "Group",
     "definition": "group_mean(x, weight, group)",
     "description": "All elements in group equals to the mean",
     "min_args": 3,
-    "max_args": 3
+    "max_args": 3,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      [
+        "field",
+        "expr"
+      ],
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "group_rank": {
     "category": "Group",
     "definition": "group_rank(x, group)",
     "description": "Each elements in a group is assigned the corresponding rank in this group",
     "min_args": 2,
-    "max_args": 2
+    "max_args": 2,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "group_extra": {
     "category": "Group",
     "definition": "group_extra(x, weight, group)",
     "description": "Replaces NaN values by their corresponding group means.",
     "min_args": 3,
-    "max_args": 3
+    "max_args": 3,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      [
+        "field",
+        "expr"
+      ],
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "group_backfill": {
     "category": "Group",
     "definition": "group_backfill(x, group, d, std = 4.0)",
     "description": "If a certain value for a certain date and instrument is NaN, from the set of same group instruments, calculate winsorized mean of all non-NaN values over last d days",
     "min_args": 3,
-    "max_args": 3
+    "max_args": 3,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      [
+        "field",
+        "expr"
+      ],
+      "number"
+    ],
+    "kwarg_types": {
+      "std": "number"
+    },
+    "return_type": "expr"
   },
   "group_scale": {
     "category": "Group",
     "definition": "group_scale(x, group)",
     "description": "Normalizes the values in a group to be between 0 and 1. (x - groupmin) / (groupmax - groupmin)",
     "min_args": 2,
-    "max_args": 2
+    "max_args": 2,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "group_zscore": {
     "category": "Group",
     "definition": "group_zscore(x, group)",
     "description": "Calculates group Z-score - numerical measurement that describes a value's relationship to the mean of a group of values. Z-score is measured in terms of standard deviations from the mean. zscore = (data - mean) / stddev of x for each instrument within its group.",
     "min_args": 2,
-    "max_args": 2
+    "max_args": 2,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "group_neutralize": {
     "category": "Group",
     "definition": "group_neutralize(x, group)",
     "description": "Neutralizes Alpha against groups. These groups can be subindustry, industry, sector, country or a constant",
     "min_args": 2,
-    "max_args": 2
+    "max_args": 2,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "group_cartesian_product": {
     "category": "Group",
     "definition": "group_cartesian_product(g1, g2)",
     "description": "Merge two groups into one group. If originally there are len_1 and len_2 group indices in g1 and g2, there will be len_1 * len_2 indices in the new group.",
     "min_args": 2,
-    "max_args": 2
+    "max_args": 2,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "combo_a": {
     "category": "Group",
     "definition": "combo_a(alpha, nlength = 250, mode = 'algo1')",
     "description": "Combines multiple alpha signals into a single weighted output by balancing each alpha's historical return with its variability over the most recent nlength days.\r\n\r\nThe parameter mode selects one of the several weighted approaches (algo1, algo2, algo3), each of which handles the tradeoff between performance and stability differently.",
     "min_args": 1,
-    "max_args": 1
+    "max_args": 1,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "kwarg_types": {
+      "nlength": "number",
+      "mode": "string"
+    },
+    "return_type": "expr"
   },
   "inst_pnl": {
     "category": "Special",
     "definition": "inst_pnl(x)",
     "description": "Generate pnl per instruments. Please note that the use of the inst_pnl() operator in an Alpha Expression is considered as utilizing the pv1 dataset (Price Volume Data for Equity) since it relies on pv1 data for calculations.",
     "min_args": 1,
-    "max_args": 1
+    "max_args": 1,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "self_corr": {
     "category": "Special",
     "definition": "self_corr(input)",
     "description": "Taking an input matrix of (D x N) with lookback=\"K\", producing an output matrix of (D x N x N), where each output(di, j, k) refers to correlation of input(di-K:di, j) and input(di-K:di, k). Outputs (D x N x N) from the input of (D x N)",
     "min_args": 1,
-    "max_args": 1
+    "max_args": 1,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "in": {
     "category": "Special",
     "definition": "in",
     "description": "in",
     "min_args": 0,
-    "max_args": null
+    "max_args": null,
+    "return_type": "expr"
   },
   "universe_size": {
     "category": "Special",
     "definition": "universe_size",
     "description": "universe_size",
     "min_args": 0,
-    "max_args": null
+    "max_args": null,
+    "return_type": "expr"
   },
   "reduce_ir": {
     "category": "Reduce",
     "definition": "reduce_ir(input)",
     "description": "IR of values in the array *** Takes an input 2-D or 3-D matrix with user-defined reducer, producing an output matrix. *If input matrix is (D x N), output matrix (D x 1) *If input matrix is (D x N X N), output matrix (D x N X 1) *The defined function is applied on the last dimension : output(I) = reduce(input(I, 0:N)).",
     "min_args": 1,
-    "max_args": 1
+    "max_args": 1,
+    "return_type": "expr"
   },
   "reduce_avg": {
     "category": "Reduce",
     "definition": "reduce_avg(input, threshold=0)",
     "description": "Average of non-NAN elements of d(..., :). Threshold: Minimum required number of valid (non-nan) values. If there is not enough valid values, then the output is nan. 0 means no limit.threshold (Default: 0) *** Takes an input 2-D or 3-D matrix with user-defined reducer, producing an output matrix. *If input matrix is (D x N), output matrix (D x 1) *If input matrix is (D x N X N), output matrix (D x N X 1) *The defined function is applied on the last dimension : output(I) = reduce(input(I, 0:N)).",
     "min_args": 1,
-    "max_args": 1
+    "max_args": 1,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "kwarg_types": {
+      "threshold": "number"
+    },
+    "return_type": "expr"
   },
   "reduce_powersum": {
     "category": "Reduce",
     "definition": "reduce_powersum(input, constant=2, precise=false)",
     "description": "Sum of power, sum(power(x, constant)). Threshold: precise, whether calculate power precise if constant greater than 4, default false constant=<integer value>, default:2 *** Takes an input 2-D or 3-D matrix with user-defined reducer, producing an output matrix. *If input matrix is (D x N), output matrix (D x 1) *If input matrix is (D x N X N), output matrix (D x N X 1) *The defined function is applied on the last dimension : output(I) = reduce(input(I, 0:N)).",
     "min_args": 1,
-    "max_args": 1
+    "max_args": 1,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "kwarg_types": {
+      "constant": "number",
+      "precise": "boolean"
+    },
+    "return_type": "expr"
   },
   "reduce_max": {
     "category": "Reduce",
     "definition": "reduce_max(input)",
     "description": "Maximum of elements of d(..., :) *** Takes an input 2-D or 3-D matrix with user-defined reducer, producing an output matrix. *If input matrix is (D x N), output matrix (D x 1) *If input matrix is (D x N X N), output matrix (D x N X 1) *The defined function is applied on the last dimension : output(I) = reduce(input(I, 0:N)).",
     "min_args": 1,
-    "max_args": 1
+    "max_args": 1,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "reduce_min": {
     "category": "Reduce",
     "definition": "reduce_min(input)",
     "description": "Minimum of elements of d(..., :) ***Takes an input 2-D or 3-D matrix with user-defined reducer, producing an output matrix. \r\nIf input matrix is (D x N), output matrix (D x 1) \r\nIf input matrix is (D x N X N), output matrix (D x N X 1) \r\nThe defined function is applied on the last dimension : output(I) = reduce(input(I, 0:N)).",
     "min_args": 1,
-    "max_args": 1
+    "max_args": 1,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "reduce_norm": {
     "category": "Reduce",
     "definition": "reduce_norm(input)",
     "description": "Absolute sum of number of element of d(..., :) *** Takes an input 2-D or 3-D matrix with user-defined reducer, producing an output matrix. *If input matrix is (D x N), output matrix (D x 1) *If input matrix is (D x N X N), output matrix (D x N X 1) *The defined function is applied on the last dimension : output(I) = reduce(input(I, 0:N)).",
     "min_args": 1,
-    "max_args": 1
+    "max_args": 1,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "reduce_sum": {
     "category": "Reduce",
     "definition": "reduce_sum(input)",
     "description": "Sum the number of element of d(..., :) *** Takes an input 2-D or 3-D matrix with user-defined reducer, producing an output matrix. *If input matrix is (D x N), output matrix (D x 1) *If input matrix is (D x N X N), output matrix (D x N X 1) *The defined function is applied on the last dimension : output(I) = reduce(input(I, 0:N)).",
     "min_args": 1,
-    "max_args": 1
+    "max_args": 1,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "reduce_range": {
     "category": "Reduce",
     "definition": "reduce_range(input)",
     "description": "Return the range of values in the array, return NAN if no valid value *** Takes an input 2-D or 3-D matrix with user-defined reducer, producing an output matrix. *If input matrix is (D x N), output matrix (D x 1) *If input matrix is (D x N X N), output matrix (D x N X 1) *The defined function is applied on the last dimension : output(I) = reduce(input(I, 0:N)).",
     "min_args": 1,
-    "max_args": 1
+    "max_args": 1,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "reduce_percentage": {
     "category": "Reduce",
     "definition": "reduce_percentage(input, percentage=0.5)",
     "description": "Return the value of percentage in the sorted array: e.g., median value when percentage=0.5. Threshold: percentage=\"<value between 0 and 1>\" (Default: 0.5) *** Takes an input 2-D or 3-D matrix with user-defined reducer, producing an output matrix. *If input matrix is (D x N), output matrix (D x 1) *If input matrix is (D x N X N), output matrix (D x N X 1) *The defined function is applied on the last dimension : output(I) = reduce(input(I, 0:N)).",
     "min_args": 1,
-    "max_args": 1
+    "max_args": 1,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "kwarg_types": {
+      "percentage": "number"
+    },
+    "return_type": "expr"
   },
   "reduce_skewness": {
     "category": "Reduce",
     "definition": "reduce_skewness(input)",
     "description": "Skewness of values in the array *** Takes an input 2-D or 3-D matrix with user-defined reducer, producing an output matrix. *If input matrix is (D x N), output matrix (D x 1) *If input matrix is (D x N X N), output matrix (D x N X 1) *The defined function is applied on the last dimension : output(I) = reduce(input(I, 0:N)).",
     "min_args": 1,
-    "max_args": 1
+    "max_args": 1,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "reduce_count": {
     "category": "Reduce",
     "definition": "reduce_count(input, threshold)",
     "description": "Count the number of element of d(..., :) > threshold. threshold=<float> *** Takes an input 2-D or 3-D matrix with user-defined reducer, producing an output matrix. *If input matrix is (D x N), output matrix (D x 1) *If input matrix is (D x N X N), output matrix (D x N X 1) *The defined function is applied on the last dimension : output(I) = reduce(input(I, 0:N)).",
     "min_args": 2,
-    "max_args": 2
+    "max_args": 2,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      "number"
+    ],
+    "kwarg_types": {
+      "threshold": "number"
+    },
+    "return_type": "expr"
   },
   "reduce_kurtosis": {
     "category": "Reduce",
     "definition": "reduce_kurtosis(input)",
     "description": "Kurtosis of values in the array ***Takes an input 2-D or 3-D matrix with user-defined reducer, producing an output matrix. \r\nIf input matrix is (D x N), output matrix (D x 1) \r\nIf input matrix is (D x N X N), output matrix (D x N X 1) \r\nThe defined function is applied on the last dimension : output(I) = reduce(input(I, 0:N)).",
     "min_args": 1,
-    "max_args": 1
+    "max_args": 1,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "return_type": "expr"
   },
   "reduce_choose": {
     "category": "Reduce",
     "definition": "reduce_choose(input, nth, ignoreNan=true)",
     "description": "Choose the 'nth' element in the array, return NAN if not found. Threshold: nth=\"<the Nth element>\" (Required) ignoreNan=\"true|false\" (Default: true) *** Takes an input 2-D or 3-D matrix with user-defined reducer, producing an output matrix. *If input matrix is (D x N), output matrix (D x 1) *If input matrix is (D x N X N), output matrix (D x N X 1) *The defined function is applied on the last dimension : output(I) = reduce(input(I, 0:N)).",
     "min_args": 2,
-    "max_args": 2
+    "max_args": 2,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ],
+      "number"
+    ],
+    "kwarg_types": {
+      "nth": "number",
+      "ignoreNan": "boolean"
+    },
+    "return_type": "expr"
   },
   "reduce_stddev": {
     "category": "Reduce",
     "definition": "reduce_stddev(input, threshold=0)",
     "description": "Standard deviation of values in the array. Threshold: Minimum required percentage of valid (non-nan) values. If there is not enough valid values, then the output is NAN. 0 means no limit.threshold (Default: 0) *** Takes an input 2-D or 3-D matrix with user-defined reducer, producing an output matrix. *If input matrix is (D x N), output matrix (D x 1) *If input matrix is (D x N X N), output matrix (D x N X 1) *The defined function is applied on the last dimension : output(I) = reduce(input(I, 0:N)).",
     "min_args": 1,
-    "max_args": 1
+    "max_args": 1,
+    "arg_types": [
+      [
+        "field",
+        "expr"
+      ]
+    ],
+    "kwarg_types": {
+      "threshold": "number"
+    },
+    "return_type": "expr"
   }
 }

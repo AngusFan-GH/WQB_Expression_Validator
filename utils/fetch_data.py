@@ -6,10 +6,10 @@ import os
 import json
 import requests
 import pandas as pd
-from datetime import datetime
 from tqdm import tqdm
 from utils.logger import print_log
 import time
+import os.path
 
 load_dotenv()
 
@@ -88,10 +88,47 @@ def make_request_with_retry(session, url, max_retries=3, base_delay=1, max_delay
     return None
 
 
+def _show_environment_help():
+    """显示环境变量设置帮助信息"""
+    print_log("=" * 60, "WARNING")
+    print_log("🔧 环境变量设置问题", "WARNING")
+    print_log("=" * 60, "WARNING")
+
+    # 检查环境变量状态
+    username = os.getenv("WQ_USERNAME")
+    password = os.getenv("WQ_PASSWORD")
+
+    print_log(f"当前状态:", "INFO")
+    print_log(f"  WQ_USERNAME: {'✅ 已设置' if username else '❌ 未设置'}", "INFO")
+    print_log(f"  WQ_PASSWORD: {'✅ 已设置' if password else '❌ 未设置'}", "INFO")
+
+    if not username or not password:
+        print_log("", "INFO")
+        print_log("📝 解决方案:", "INFO")
+        print_log("1. 在项目根目录创建 .env 文件", "INFO")
+        print_log("2. 在 .env 文件中添加以下内容:", "INFO")
+        print_log("   WQ_USERNAME=your_actual_username", "INFO")
+        print_log("   WQ_PASSWORD=your_actual_password", "INFO")
+        print_log("3. 重新运行程序", "INFO")
+        print_log("", "INFO")
+        print_log("💡 提示: 运行 'python check_env.py' 检查环境变量", "INFO")
+    else:
+        print_log("", "INFO")
+        print_log("⚠️  用户名或密码可能不正确", "WARNING")
+        print_log("请检查 .env 文件中的凭据是否正确", "INFO")
+        print_log("确保您的WQB账户有效且网络连接正常", "INFO")
+
+    print_log("=" * 60, "WARNING")
+
+
 def login():
     global s
     if s is not None:
         return s
+
+    if not WQ_USERNAME or not WQ_PASSWORD:
+        _show_environment_help()
+        return None
 
     print_log("开始登录认证...")
     s = requests.Session()
@@ -105,6 +142,8 @@ def login():
         print_log(f"登录成功，耗时: {login_time:.2f}秒")
     else:
         print_log(f"登录失败，状态码: {response.status_code}", "ERROR")
+        if response.status_code == 401:
+            _show_environment_help()
 
     return s
 
@@ -119,6 +158,10 @@ def get_operators():
     else:
         print_log("从API获取操作符数据...")
         s = login()
+
+        if s is None:
+            print_log("登录失败，无法获取操作符数据", "ERROR")
+            return None
 
         start_time = time.time()
         response = s.get(f"{BASE_URL}/operators")
@@ -162,6 +205,10 @@ def get_data_fields(region, delay, universe, request_delay=0.5):
 
     # 从API获取数据
     s = login()
+
+    if s is None:
+        print_log(f"登录失败，无法获取数据字段 - {region}_{delay}_{universe}", "ERROR")
+        return None
 
     url = f"{BASE_URL}/data-fields?region={region}&delay={delay}&universe={universe}&instrumentType=EQUITY"
 
@@ -215,6 +262,11 @@ def get_settings():
     else:
         print_log("从API获取设置数据...")
         s = login()
+
+        if s is None:
+            print_log("登录失败，无法获取设置数据", "ERROR")
+            return None
+
         response = s.options(f"{BASE_URL}/simulations").json()
         settings = response["actions"]["POST"]["settings"]["children"]
         with open(f"{DATA_DIR}/settings.json", "w") as f:
@@ -250,6 +302,10 @@ def get_all_data_fields():
     print_log("开始获取所有数据字段...")
 
     settings = get_settings()
+    if settings is None:
+        print_log("无法获取设置数据，终止数据字段获取", "ERROR")
+        return 0, 0
+
     all_combinations = get_combinations(settings)
 
     print_log(f"总共需要处理 {len(all_combinations)} 个组合")

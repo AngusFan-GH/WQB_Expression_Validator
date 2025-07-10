@@ -1,4 +1,12 @@
-?start: expr
+?start: program
+
+program: statement*
+
+?statement: assignment ";" -> assignment_stmt
+          | expr ";"       -> expr_stmt
+          | expr           -> final_expr
+
+assignment: CNAME "=" expr -> assignment
 
 ?expr: logic_or
 
@@ -45,4 +53,14 @@ kwarg: CNAME "=" expr
 %import common.SIGNED_NUMBER
 %import common.ESCAPED_STRING
 %import common.WS
+%import common.C_COMMENT
+%import common.CPP_COMMENT
+
 %ignore WS
+%ignore C_COMMENT
+%ignore CPP_COMMENT
+
+COMMENT: /#[^\n]*/
+ML_COMMENT: /\/\*[\s\S]*?\*\//
+%ignore COMMENT
+%ignore ML_COMMENT
