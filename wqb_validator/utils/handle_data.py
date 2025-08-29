@@ -1,7 +1,7 @@
 import os
 import json
 
-from utils.fetch_data import DATA_DIR
+from .fetch_data import DATA_DIR
 from .logger import print_log
 from tqdm import tqdm
 

@@ -3,6 +3,11 @@
 全面表达式校验测试用例
 """
 
+import sys
+import os
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from validator.validator import ExpressionValidator
 
 

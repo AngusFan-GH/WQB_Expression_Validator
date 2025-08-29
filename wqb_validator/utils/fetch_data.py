@@ -7,20 +7,50 @@ import json
 import requests
 import pandas as pd
 from tqdm import tqdm
-from utils.logger import print_log
+from .logger import print_log
 import time
 import os.path
 
-load_dotenv()
+
+# 延迟加载环境变量，在需要时再加载
+def _load_env_vars():
+    """加载环境变量"""
+    # 优先加载当前目录的.env文件（开发环境）
+    current_env = os.path.join(os.getcwd(), ".env")
+    if os.path.exists(current_env):
+        load_dotenv(current_env)
+        print(f"📁 已加载开发环境配置: {current_env}")
+        return
+
+    # 如果当前目录没有.env文件，则加载用户配置目录的.env文件
+    user_env = os.path.expanduser("~/.wqb_validator/.env")
+    if os.path.exists(user_env):
+        load_dotenv(user_env)
+        print(f"📁 已加载用户配置: {user_env}")
 
 
-WQ_USERNAME = os.getenv("WQ_USERNAME")
-WQ_PASSWORD = os.getenv("WQ_PASSWORD")
+def _get_env_var(name, default=None):
+    """获取环境变量，如果未设置则尝试加载"""
+    value = os.getenv(name)
+    if value is None:
+        _load_env_vars()
+        value = os.getenv(name, default)
+    return value
 
-config = json.load(open("config.json"))
 
-DATA_DIR = config["DATA_DIR"]
-BASE_URL = config["BASE_URL"]
+# 延迟获取环境变量
+def get_username():
+    return _get_env_var("WQ_USERNAME")
+
+
+def get_password():
+    return _get_env_var("WQ_PASSWORD")
+
+
+# 使用包的配置
+from ..config import BASE_URL, DATA_DIR
+
+# 配置已经通过导入获取
 
 if not os.path.exists(DATA_DIR):
     os.makedirs(DATA_DIR)
@@ -126,13 +156,16 @@ def login():
     if s is not None:
         return s
 
-    if not WQ_USERNAME or not WQ_PASSWORD:
+    username = get_username()
+    password = get_password()
+
+    if not username or not password:
         _show_environment_help()
         return None
 
     print_log("开始登录认证...")
     s = requests.Session()
-    s.auth = (WQ_USERNAME, WQ_PASSWORD)
+    s.auth = (username, password)
 
     start_time = time.time()
     response = s.post(f"{BASE_URL}/authentication")
@@ -140,12 +173,13 @@ def login():
 
     if response.status_code == 201:
         print_log(f"登录成功，耗时: {login_time:.2f}秒")
+        return s
     else:
         print_log(f"登录失败，状态码: {response.status_code}", "ERROR")
         if response.status_code == 401:
             _show_environment_help()
-
-    return s
+        s = None
+        return None
 
 
 def get_operators():

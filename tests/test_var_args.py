@@ -3,6 +3,11 @@
 测试可变参数函数的处理
 """
 
+import sys
+import os
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from validator.validator import ExpressionValidator
 
 

@@ -1,0 +1,28 @@
+# 包含README和许可证文件
+include README.md
+include LICENSE
+include requirements.txt
+include pyproject.toml
+
+# 包含语法文件（在包内）
+recursive-include wqb_validator *.lark
+include wqb_validator/valid_ops.json
+
+# 包含工具文件（在包内）
+recursive-include wqb_validator/utils *.py
+
+# 包含测试文件
+recursive-include tests *.py *.md
+
+# 排除Python缓存文件
+global-exclude __pycache__
+global-exclude *.py[cod]
+global-exclude *.so
+global-exclude .DS_Store
+global-exclude .git*
+global-exclude .pytest_cache
+global-exclude .coverage
+global-exclude htmlcov/
+global-exclude dist/
+global-exclude build/
+global-exclude *.egg-info/

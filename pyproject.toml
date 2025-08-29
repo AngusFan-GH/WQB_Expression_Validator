@@ -1,0 +1,89 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wqb-expression-validator"
+dynamic = ["version"]
+description = "A Python package for validating WorldQuant Brain (WQB) expressions"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Your Name", email = "your.email@example.com"}
+]
+maintainers = [
+    {name = "Your Name", email = "your.email@example.com"}
+]
+keywords = ["wqb", "worldquant", "brain", "expression", "validator", "financial", "quant"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Financial and Insurance Industry",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Scientific/Engineering :: Financial",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "requests>=2.31.0",
+    "numpy>=1.26.0,<2.0.0",
+    "pandas>=2.0.0,<3.0.0",
+    "tqdm>=4.65.0",
+    "python-dotenv>=1.0.0",
+    "lark>=1.1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=22.0.0",
+    "flake8>=4.0.0",
+    "mypy>=1.0.0",
+]
+test = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/wqb-expression-validator"
+Documentation = "https://github.com/yourusername/wqb-expression-validator#readme"
+Repository = "https://github.com/yourusername/wqb-expression-validator"
+"Bug Tracker" = "https://github.com/yourusername/wqb-expression-validator/issues"
+
+[project.scripts]
+wqb-validate = "wqb_validator.cli:main"
+wqb-data = "wqb_validator.data_manager:main"
+
+[project.entry-points."console_scripts"]
+wqb-validate = "wqb_validator.cli:main"
+wqb-data = "wqb_validator.data_manager:main"
+
+[tool.setuptools.dynamic]
+version = {attr = "wqb_validator.__version__"}
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["wqb_validator*"]
+
+[tool.setuptools.package-data]
+wqb_validator = [
+    "data/*.json",
+    "data/*.csv",
+    "grammar/*.lark",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
