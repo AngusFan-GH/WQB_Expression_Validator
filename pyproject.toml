@@ -63,10 +63,6 @@ Repository = "https://github.com/yourusername/wqb-expression-validator"
 wqb-validate = "wqb_validator.cli:main"
 wqb-data = "wqb_validator.data_manager:main"
 
-[project.entry-points."console_scripts"]
-wqb-validate = "wqb_validator.cli:main"
-wqb-data = "wqb_validator.data_manager:main"
-
 [tool.setuptools.dynamic]
 version = {attr = "wqb_validator.__version__"}
 

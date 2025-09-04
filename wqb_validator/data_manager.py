@@ -117,14 +117,14 @@ WQ_BASE_URL={base_url or self.config['base_url']}
 
             print("📥 正在获取数据字段信息...")
             # 获取所有数据字段
-            all_data_fields = get_all_data_fields()
+            success_count, failed_count = get_all_data_fields()
 
-            if all_data_fields:
-                # 保存数据字段数据
-                data_fields_file = self.data_dir / "data_fields.json"
-                with open(data_fields_file, "w", encoding="utf-8") as f:
-                    json.dump(all_data_fields, f, ensure_ascii=False, indent=2)
-                print(f"✅ 数据字段信息已保存: {data_fields_file}")
+            if success_count > 0:
+                # 处理数据字段文件
+                from .utils.handle_data import handle_data_fields
+
+                handle_data_fields(str(self.data_dir))
+                print(f"✅ 数据字段信息已处理: {self.data_dir}/data_fields.json")
             else:
                 print("⚠️  数据字段信息获取失败")
 

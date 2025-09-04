@@ -45,18 +45,29 @@ def _load_data():
     """加载必要的数据文件"""
     global operators_df, valid_operator_names, data_fields_dict, valid_ops
 
-    # 强制从用户配置目录加载数据，不使用包内置数据
+    # 优先从当前目录加载数据（开发环境），否则从用户配置目录加载（生产环境）
+    current_data_dir = os.path.join(os.getcwd(), "data")
     user_data_dir = os.path.expanduser("~/.wqb_validator/data")
 
-    if not os.path.exists(user_data_dir):
+    # 检查当前目录是否有数据文件（开发环境）
+    if os.path.exists(current_data_dir) and os.path.exists(
+        os.path.join(current_data_dir, "operators.csv")
+    ):
+        data_dir = current_data_dir
+        print(f"📁 使用开发环境数据: {data_dir}")
+    else:
+        data_dir = user_data_dir
+        print(f"📁 使用生产环境数据: {data_dir}")
+
+    if not os.path.exists(data_dir):
         raise FileNotFoundError(
-            f"数据目录不存在: {user_data_dir}\n"
+            f"数据目录不存在: {data_dir}\n"
             "请先运行 'wqb-data setup <email> <password>' 配置认证信息，\n"
             "然后运行 'wqb-data fetch' 下载数据。"
         )
 
     if operators_df is None:
-        operators_file = os.path.join(user_data_dir, "operators.csv")
+        operators_file = os.path.join(data_dir, "operators.csv")
         if not os.path.exists(operators_file):
             raise FileNotFoundError(
                 f"操作符文件不存在: {operators_file}\n"
@@ -66,7 +77,7 @@ def _load_data():
         valid_operator_names = set(operators_df["name"].dropna().unique())
 
     if data_fields_dict is None:
-        data_fields_file = os.path.join(user_data_dir, "data_fields.json")
+        data_fields_file = os.path.join(data_dir, "data_fields.json")
         if not os.path.exists(data_fields_file):
             raise FileNotFoundError(
                 f"数据字段文件不存在: {data_fields_file}\n"
@@ -76,7 +87,7 @@ def _load_data():
             data_fields_dict = json.load(f)
 
     if valid_ops is None:
-        valid_ops_file = os.path.join(user_data_dir, "valid_ops.json")
+        valid_ops_file = os.path.join(data_dir, "valid_ops.json")
         if not os.path.exists(valid_ops_file):
             raise FileNotFoundError(
                 f"操作符定义文件不存在: {valid_ops_file}\n"

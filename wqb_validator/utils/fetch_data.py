@@ -4,12 +4,9 @@ import random
 from dotenv import load_dotenv
 import os
 import json
-import requests
 import pandas as pd
 from tqdm import tqdm
 from .logger import print_log
-import time
-import os.path
 
 
 # 延迟加载环境变量，在需要时再加载

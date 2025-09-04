@@ -146,7 +146,7 @@
   "reverse": {
     "category": "Arithmetic",
     "definition": "reverse(x)",
-    "description": " - x",
+    "description": "- x",
     "min_args": 1,
     "max_args": 1,
     "arg_types": [["field", "expr"]],
@@ -335,7 +335,7 @@
     "description": "Backfill is the process of replacing the NAN or 0 values by a meaningful value (i.e., a first non-NaN value)",
     "min_args": 1,
     "max_args": 3,
-    "arg_types": [["field", "expr"], "number", "number"],
+    "arg_types": [["field", "expr"]],
     "kwarg_types": {
       "lookback": "number",
       "k": "number",
@@ -493,6 +493,7 @@
     "description": "Returns the number of NaN values in x for the past d days",
     "min_args": 2,
     "max_args": 2,
+    "arg_types": [["field", "expr"], "number"],
     "return_type": "expr"
   },
   "ts_covariance": {
@@ -531,6 +532,7 @@
     "description": "Returns the relative index of the min value in the time series for the past d days; If the current day has the min value for the past d days, it returns 0; If previous day has the min value for the past d days, it returns 1.",
     "min_args": 2,
     "max_args": 2,
+    "arg_types": [["field", "expr"], "number"],
     "return_type": "expr"
   },
   "ts_regression": {
@@ -914,6 +916,7 @@
     "description": "IR of values in the array *** Takes an input 2-D or 3-D matrix with user-defined reducer, producing an output matrix. *If input matrix is (D x N), output matrix (D x 1) *If input matrix is (D x N X N), output matrix (D x N X 1) *The defined function is applied on the last dimension : output(I) = reduce(input(I, 0:N)).",
     "min_args": 1,
     "max_args": 1,
+    "arg_types": [["field", "expr"]],
     "return_type": "expr"
   },
   "reduce_avg": {

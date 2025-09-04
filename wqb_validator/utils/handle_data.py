@@ -6,9 +6,10 @@ from .logger import print_log
 from tqdm import tqdm
 
 
-def handle_data_fields():
+def handle_data_fields(data_dir=None):
     """处理数据字段文件，按文件后缀名分组提取id"""
-    data_dir = "data"
+    if data_dir is None:
+        data_dir = "data"
     grouped_data = {}
 
     # 获取所有data_fields开头的JSON文件

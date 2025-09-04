@@ -17,7 +17,6 @@ from .data_manager import DataManager
 # 版本信息
 __all__ = [
     "__version__",
-    "__version__",
     "__author__",
     "__email__",
     "ExpressionValidator",
